@@ -1,0 +1,14 @@
+version: '2'
+
+tasks:
+  apply:
+    cmds:
+      - |-
+        docker run \
+        --rm \
+        --mount type=bind,source=$HOME/.kube,target=/root/.kube \
+        --mount type=bind,source="$(pwd)",target=/tmp \
+        --network=host \
+        -e ROTHANDR_SLACK_WEBHOOK="$ROTHANDR_SLACK_WEBHOOK" \
+        praqma/helmsman:v1.8.1-helm-v2.11.0 \
+        helmsman --debug --apply -f desired-state.yaml
