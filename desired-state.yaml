@@ -6,7 +6,6 @@ metadata:
 settings:
   kubeContext: "docker-desktop" 
   storageBackend: "secret"
-  slackWebhook:  "$ROTHANDR_SLACK_WEBHOOK"
   reverseDelete: true
 
 # define your environments and their k8s namespaces
